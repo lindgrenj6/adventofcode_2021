@@ -6,6 +6,7 @@ import (
 	"github.com/lindgrenj6/adventofcode_2021/util"
 )
 
+// var input = util.ParseFileToIntSlice("./testinput.txt")
 var input = util.ParseFileToIntSlice("./input.txt")
 
 func main() {

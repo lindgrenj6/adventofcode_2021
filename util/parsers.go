@@ -22,15 +22,15 @@ func ParseFileToIntSlice(filename string) []int {
 	return out.([]int)
 }
 
-func DoubleParseIntSlice(filename string) [][]string {
-	input := readFile(filename)
+func ParseFileToSliceOfIntSlices(filename string) [][]string {
+	input := ReadFile(filename)
 	lines := strings.Split(strings.TrimSpace(input), "\n\n")
 
 	return splitLines(lines)
 }
 
 func ParseFileToStringSlice(filename string) []string {
-	input := readFile(filename)
+	input := ReadFile(filename)
 	return strings.Split(strings.TrimSpace(input), "\n")
 }
 
@@ -48,11 +48,11 @@ func splitLines(lines []string) [][]string {
 	return out.([][]string)
 }
 
-func readFile(filename string) string {
+func ReadFile(filename string) string {
 	input, err := os.ReadFile(filename)
 	if err != nil {
 		panic(err)
 	}
 
-	return string(input)
+	return strings.TrimSpace(string(input))
 }

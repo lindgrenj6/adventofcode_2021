@@ -5,8 +5,8 @@ import (
 )
 
 var (
-	part1Answer = 1
-	part2Answer = 2
+	part1Answer = 1715
+	part2Answer = 1739
 )
 
 func TestPart1(t *testing.T) {
