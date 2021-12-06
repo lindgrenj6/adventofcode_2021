@@ -22,13 +22,6 @@ func ParseFileToIntSlice(filename string) []int {
 	return out.([]int)
 }
 
-func ParseFileToSliceOfIntSlices(filename string) [][]string {
-	input := ReadFile(filename)
-	lines := strings.Split(strings.TrimSpace(input), "\n\n")
-
-	return splitLines(lines)
-}
-
 func ParseFileToStringSlice(filename string) []string {
 	input := ReadFile(filename)
 	return strings.Split(strings.TrimSpace(input), "\n")
@@ -55,4 +48,21 @@ func ReadFile(filename string) string {
 	}
 
 	return strings.TrimSpace(string(input))
+}
+
+func ParseFileToSliceOfIntSlices(filename string) [][]int {
+	lines := ParseFileToStringSlice(filename)
+
+	raw := funk.Map(lines, func(line string) []int {
+		return funk.Map(strings.Split(line, ""), func(n string) int {
+			i, err := strconv.Atoi(n)
+			if err != nil {
+				panic("bad int parse: " + n)
+			}
+
+			return i
+		}).([]int)
+	})
+
+	return raw.([][]int)
 }
