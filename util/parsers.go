@@ -27,6 +27,12 @@ func ParseFileToStringSlice(filename string) []string {
 	return strings.Split(strings.TrimSpace(input), "\n")
 }
 
+func ParseFileToSliceOfStringSlicesDoubleDelimited(filename string) []string {
+	input := ReadFile(filename)
+
+	return strings.Split(input, "\n\n")
+}
+
 func ParseFileToSliceOfStringSlices(filename string) [][]string {
 	lines := ParseFileToStringSlice(filename)
 
