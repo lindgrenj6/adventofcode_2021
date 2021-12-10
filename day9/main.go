@@ -8,9 +8,9 @@ import (
 	"github.com/thoas/go-funk"
 )
 
-// var input = util.ParseFileToSliceOfIntSlices("./input.txt")
+var input = util.ParseFileToSliceOfIntSlices("./input.txt")
 
-var input = util.ParseFileToSliceOfIntSlices("./testinput.txt")
+// var input = util.ParseFileToSliceOfIntSlices("./testinput.txt")
 
 func main() {
 	fmt.Printf("Part 1: %#v\n", Part1())
